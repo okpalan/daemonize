@@ -20,11 +20,17 @@
 
 #define DEFAULT_PORT "8080"
 #define DEFAULT_MAX_CLIENTS 10
+#define PIDFILE "/var/etc/casper.pid"
+ 
 
 struct ClientConnection *head = NULL;
 int listenfd;
 
-
+static void sigterm_handler(int signum)
+{
+    syslog(LOG_INFO, "SIGTERM received, exiting");
+    exit(0);
+}
 int daemonize(const char *dir, const char *pidfile, int logfd)
 {
     pid_t pid;

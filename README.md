@@ -22,20 +22,10 @@ Options:
 #include <stdlib.h>
 
 #include <signal.h>
-
 #include <unistd.h>
-
 #include <syslog.h>
-
 #include "daemon.h";
 
-
-static void sigterm_handler(int signum)
-{
-        syslog(LOG_INFO, "SIGTERM received, exiting");
-        exit(0);
-
-}
 
 int main()
 {
