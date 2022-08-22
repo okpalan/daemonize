@@ -18,6 +18,11 @@ Options:
 #include <syslog.h>
 #include "daemon.h"
 
+static void sigterm_handler(int signum)
+{
+    syslog(LOG_INFO, "SIGTERM received, exiting");
+    exit(0);
+}
 int main()
 {
         if (daemonize("/tmp", "/tmp/daemon.pid", "/tmp/daemon.log") != 0)
