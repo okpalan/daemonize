@@ -1,3 +1,5 @@
+# Daemonize:
+## Run a Process in the Background.
 Usage: daemon [options]
 Options:
         -d <dir>          Change working directory
@@ -9,7 +11,6 @@ Options:
 
         -V                Show version
 
-
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,11 +19,11 @@ Options:
 #include <syslog.h>
 #include "daemon.h"
 
-static void sigterm_handler(int signum)
-{
+static void sigterm_handler(int signum){
     syslog(LOG_INFO, "SIGTERM received, exiting");
     exit(0);
 }
+
 int main()
 {
         if (daemonize("/tmp", "/tmp/daemon.pid", "/tmp/daemon.log") != 0)
