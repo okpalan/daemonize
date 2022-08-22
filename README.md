@@ -9,13 +9,14 @@ Options:
 
         -V                Show version
 
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
 #include <unistd.h>
 #include <syslog.h>
-#include "daemon.h";
+#include "daemon.h"
 
 int main()
 {
