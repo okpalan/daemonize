@@ -1,0 +1,10 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "clientconnection.h": "c",
+        "pthread.h": "c",
+        "error.h": "c",
+        "stat.h": "c",
+        "dirent.h": "c"
+    }
+}

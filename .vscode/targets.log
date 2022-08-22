@@ -1,0 +1,367 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.3
+# Built for Windows32
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Mon Aug 22 17:50:14 2022
+
+# Variables
+
+# environment
+SYSTEMDRIVE = C:
+# makefile (from 'makefile', line 3)
+OBJ = obj
+# environment
+LC_ALL = C
+# makefile (from 'makefile', line 4)
+SRC = src
+# environment
+USERPROFILE = C:\Users\Devology
+# environment
+LOCALAPPDATA = C:\Users\Devology\AppData\Local
+# environment
+WSLENV = WT_SESSION::WT_PROFILE_ID
+# environment
+VSCODE_CWD = C:\Users\Devology\MyRepos\daemonize
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+SYSTEMROOT = C:\windows
+# environment
+PROCESSOR_LEVEL = 23
+# environment
+PSMODULEPATH = C:\Users\Devology\Documents\PowerShell\Modules;C:\Program Files\PowerShell\Modules;c:\program files\powershell\7\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\windows\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# environment
+LUA_DEV = C:\Program Files (x86)\Lua\5.1
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_24512_SWUZXAFAUAFTAEGG
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# automatic
+%F = $(notdir $%)
+# environment
+CONDA_PROMPT_MODIFIER = (base) 
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\Devology\AppData\Roaming\Code - Insiders\CachedData\235a92a3693176fbf9af16ec5b829c458a1d682f
+# environment
+LANG 
+ = C
+# default
+.LOADED := 
+# environment
+TMP = C:\Users\Devology\AppData\Local\Temp
+# default
+.INCLUDE_DIRS = .
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# makefile
+MAKEFLAGS = pqrR
+# environment
+ONEDRIVE = C:\Users\Devology\OneDrive
+# environment
+POWERSHELL_DISTRIBUTION_CHANNEL = MSI:Windows 10 Home
+# makefile
+CURDIR := c:/Users/Devology/MyProjects/daemonize/daemonize
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# makefile (from 'makefile', line 1)
+MAKEFILE_LIST := makefile
+# environment
+CONDA_SHLVL = 1
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 24512
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# environment
+ONLINESERVICES = Online Services
+# environment
+CONDA_PYTHON_EXE = C:\ProgramData\Anaconda3\python.exe
+# environment
+WT_PROFILE_ID = {574e775e-4f2a-5b96-ac1e-a2962a402336}
+# automatic
+*F = $(notdir $*)
+# environment
+LUA_PATH = ;;C:\Program Files (x86)\Lua\5.1\lua\?.luac
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
+# makefile (from 'makefile', line 5)
+INCLUDE = $(SRC)/include
+# environment
+ONEDRIVECONSUMER = C:\Users\Devology\OneDrive
+# default
+MAKE_HOST := Windows32
+# environment
+PROGRAMDATA = C:\ProgramData
+# environment
+CONDA_PREFIX = C:\ProgramData\Anaconda3
+# default
+SHELL := sh.exe
+# environment
+HOMEPATH = \Users\Devology
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\windows\system32\cmd.exe
+# environment
+WINDIR = C:\windows
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = C:\ProgramData\Anaconda3;C:\ProgramData\Anaconda3\Library\mingw-w64\bin;C:\ProgramData\Anaconda3\Library\usr\bin;C:\ProgramData\Anaconda3\Library\bin;C:\ProgramData\Anaconda3\Scripts;C:\ProgramData\Anaconda3\bin;C:\ProgramData\Anaconda3\condabin;C:\Program Files\PowerShell\7;C:\Users\okpal\AppData\Local\ActiveState\StateTool\release\bin;C:\Program Files (x86)\VMware\VMwareWorkstation\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\ProgramData\chocolatey\bin;C:\ProgramData\nvm;C:\Program Files\nodejs;C:\Program Files\Go\bin;C:\Program Files\Git\cmd;C:\Program Files\PowerShell\7;C:\Program Files (x86)\Lua\5.1;C:\Program Files (x86)\Lua\5.1\clibs;C:\Program Files\TortoiseHg;C:\Program Files\dotnet;C:\Program Files\CMake\bin;C:\Users\Devology\scoop\apps\mingw\current\bin;C:\Users\Devology\scoop\shims;C:\Users\Devology\AppData\Local\Microsoft\WindowsApps;C:\Users\Devology\AppData\Local\Programs\Microsoft VS Code Insiders\bin
+# environment
+COMPUTERNAME = NMOLAPTOP
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+PROMPT = $P$G
+# environment
+WT_SESSION = 7474aef6-5973-41ef-a8ce-1c661a0e4e2b
+# environment
+LOGONSERVER = \\NMOLAPTOP
+# makefile (from 'makefile', line 11)
+BINS = $(patsubst $(SRC)/%.c,$(BIN)/%,$(SOURCES))
+# environment
+USERNAME = Devology
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.wlua;.lexe;.CPL
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# makefile (from 'makefile', line 10)
+OBJECTS = $(patsubst $(SRC)/%.c,$(OBJ)/%.o,$(SOURCES))
+# environment
+USERDOMAIN = NMOLaptop
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+CONDA_DEFAULT_ENV = base
+# environment
+OS = Windows_NT
+# makefile
+.DEFAULT_GOAL := obj/daemonize.o
+# environment
+NVM_HOME = C:\ProgramData\nvm
+# default
+MAKE_VERSION := 4.3
+# environment
+PLATFORMCODE = KV
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# environment
+_CONDA_ROOT = C:\ProgramData\Anaconda3
+# environment
+USERDOMAIN_ROAMINGPROFILE = NMOLaptop
+# environment
+NUMBER_OF_PROCESSORS = 12
+# environment
+PUBLIC = C:\Users\Public
+# makefile (from 'makefile', line 2)
+BIN = bin
+# environment
+APPDATA = C:\Users\Devology\AppData\Roaming
+# makefile (from 'makefile', line 7)
+CFLAGS = -Wall -std=gnu99 -lpthread
+# environment
+_CONDA_EXE = C:\ProgramData\Anaconda3\Scripts\conda.exe
+# environment
+HOMEDRIVE = C:
+# environment
+NVM_SYMLINK = C:\Program Files\nodejs
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = C:\Users\Devology\AppData\Local\Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\b0536af10cba33c15ffd6d4d442115f7-1.71.0-insider-main-sock
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
+# environment
+REGIONCODE = EMEA
+# environment
+PROCESSOR_REVISION = 6801
+# makefile (from 'makefile', line 9)
+SOURCES = $(wildcard $(SRC)/*.c)
+# environment
+CONDA_EXE = C:\ProgramData\Anaconda3\Scripts\conda.exe
+# environment
+PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
+# variable set hash-table stats:
+# Load=117/1024=11%, Rehash=0, Collisions=19/170=11%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# src (key c:/Users/Devology/MyProjects/daemonize/daemonize/src, mtime 1661186847): 4 files, no impossibilities.
+# . (key c:/Users/Devology/MyProjects/daemonize/daemonize, mtime 1661187007): 9 files, no impossibilities.
+
+# 13 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+bin/daemonize: obj/daemonize.o
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: 'daemonize'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
+#  recipe to execute (from 'makefile', line 18):
+	@mkdir -p $(BIN)
+	gcc $(CFLAGS) $< -o $@
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 27):
+	@rm -rf $(OBJ) $(BIN)
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: bin/daemonize
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
+
+obj/daemonize.o: src/daemonize.c
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: 'daemonize'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/daemonize.o
+# automatic
+# * := daemonize
+# automatic
+# < := src/daemonize.c
+# automatic
+# + := src/daemonize.c
+# automatic
+# % := 
+# automatic
+# ^ := src/daemonize.c
+# automatic
+# ? := src/daemonize.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/17=6%
+#  recipe to execute (from 'makefile', line 14):
+	@mkdir -p $(OBJ)
+	gcc $(CFLAGS) -I$(INCLUDE) -c $< -o $@
+
+# Not a target:
+src/daemonize.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-22 17:49:55
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-22 17:50:10
+#  File has been updated.
+#  Successfully updated.
+
+.PHONY: all clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=9/1024=1%, Rehash=0, Collisions=0/27=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 23 / storage = 189 B / avg = 8 B
+# current buf: size = 8174 B / used = 189 B / count = 23 / avg = 8 B
+
+# strcache performance: lookups = 44 / hit rate = 47%
+# hash-table stats:
+# Load=23/8192=0%, Rehash=0, Collisions=0/44=0%
+# Finished Make data base on Mon Aug 22 17:50:14 2022
+
+ 
