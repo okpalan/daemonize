@@ -7,7 +7,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Mon Aug 22 18:41:28 2022
+# Make data base, printed on Mon Aug 22 18:50:51 2022
 
 # Variables
 
@@ -243,7 +243,8 @@ PROCESSOR_REVISION = 6801
 SOURCES = $(wildcard $(SRC)/*.c)
 # environment
 CONDA_EXE = C:\ProgramData\Anaconda3\Scripts\conda.exe
-# environment
+# env 
+ironment
 PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
 # variable set hash-table stats:
 # Load=117/1024=11%, Rehash=0, Collisions=19/170=11%
@@ -255,9 +256,9 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
 # Directories
 
 # src (key c:/Users/Devology/MyProjects/daemonize/daemonize/src, mtime 1661186847): 4 files, no impossibilities.
-# . (key c:/Users/Devology/MyProjects/daemonize/daemonize, mtime 1661189971): 9 files, no impossibilities.
+# . (key c:/Users/Devology/MyProjects/daemonize/daemonize, mtime 1661190556): 10 files, no impossibilities.
 
-# 13 files, no impossibilities in 2 directories.
+# 14 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -332,14 +333,14 @@ obj/daemonize.o: src/daemonize.c
 # Not a target:
 src/daemonize.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 18:38:04
+#  Last modified 2022-08-22 18:48:53
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 18:40:53
+#  Last modified 2022-08-22 18:49:38
 #  File has been updated.
 #  Successfully updated.
 
@@ -356,13 +357,12 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 183 B / avg = 7 B
-# current buf: size = 8174 B / used = 183 B / count = 23 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 24 / storage = 186 B / avg = 7 B
+# current buf: size = 8174 B / used = 186 B / count = 24 / avg = 7 B
 
-# strcache performance: lookups = 44 / hit rate = 47%
+# strcache performance: lookups = 45 / hit rate = 46%
 # hash-table stats:
-# Loa 
-d=23/8192=0%, Rehash=0, Collisions=0/44=0%
-# Finished Make data base on Mon Aug 22 18:41:28 2022
+# Load=24/8192=0%, Rehash=0, Collisions=0/45=0%
+# Finished Make data base on Mon Aug 22 18:50:51 2022
 
  

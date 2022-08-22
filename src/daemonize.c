@@ -21,7 +21,6 @@
 #define DEFAULT_PORT "8080"
 #define DEFAULT_MAX_CLIENTS 10
 #define PIDFILE "/var/etc/casper.pid"
- 
 
 struct ClientConnection *head = NULL;
 int listenfd;

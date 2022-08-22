@@ -1,9 +1,3 @@
-
-```sh
-gcc -o daemon daemonize.c -lpthread
-```
-
-
 Usage: daemon [options]
 Options:
         -d <dir>          Change working directory
@@ -16,16 +10,12 @@ Options:
         -V                Show version
 
 ```c
-
 #include <stdio.h>
-
 #include <stdlib.h>
-
 #include <signal.h>
 #include <unistd.h>
 #include <syslog.h>
 #include "daemon.h";
-
 
 int main()
 {
@@ -43,4 +33,5 @@ int main()
         }
         return 0;
 }
+
 ```
