@@ -27,6 +27,6 @@ struct Connection
 extern struct Connection *connection_head;
 extern struct Connection *connection_current;
 
-int daemonize(char *dir, char *pidfile, int logfd);
+int daemonize(const char *dir, char *pidfile, int logfd);
 
 #endif
