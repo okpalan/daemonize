@@ -1,24 +1,21 @@
 make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+makefile:3: *** missing separator.  Stop.
+
 # GNU Make 4.3
 # Built for Windows32
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Mon Aug 22 18:50:51 2022
+# Make data base, printed on Tue Aug 23 22:28:53 2022
 
 # Variables
 
 # environment
 SYSTEMDRIVE = C:
-# makefile (from 'makefile', line 3)
-OBJ = obj
 # environment
 LC_ALL = C
-# makefile (from 'makefile', line 4)
-SRC = src
 # environment
 USERPROFILE = C:\Users\Devology
 # environment
@@ -26,7 +23,7 @@ LOCALAPPDATA = C:\Users\Devology\AppData\Local
 # environment
 WSLENV = WT_SESSION::WT_PROFILE_ID
 # environment
-VSCODE_CWD = C:\Users\Devology\MyRepos\daemonize
+VSCODE_CWD = C:\Users\Devology\MyProjects\daemonize
 # environment
 CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
 # environment
@@ -42,7 +39,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # environment
 LUA_DEV = C:\Program Files (x86)\Lua\5.1
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_24512_SWUZXAFAUAFTAEGG
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_21788_HDGZNQJOVQYVVJCP
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -56,7 +53,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # environment
 CONDA_PROMPT_MODIFIER = (base) 
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\Devology\AppData\Roaming\Code - Insiders\CachedData\235a92a3693176fbf9af16ec5b829c458a1d682f
+VSCODE_CODE_CACHE_PATH = C:\Users\Devology\AppData\Roaming\Code - Insiders\CachedData\bd6107301dc9a6200bd8d4f64a9b198438b3f1d6
 # environment
 LANG = C
 # default
@@ -74,7 +71,7 @@ ONEDRIVE = C:\Users\Devology\OneDrive
 # environment
 POWERSHELL_DISTRIBUTION_CHANNEL = MSI:Windows 10 Home
 # makefile
-CURDIR := c:/Users/Devology/MyProjects/daemonize/daemonize
+CURDIR := c:/Users/Devology/MyProjects/daemonize
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
@@ -96,7 +93,7 @@ CONDA_SHLVL = 1
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 24512
+VSCODE_PID = 21788
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # environment
@@ -113,8 +110,6 @@ LUA_PATH = ;;C:\Program Files (x86)\Lua\5.1\lua\?.luac
 <D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
-# makefile (from 'makefile', line 5)
-INCLUDE = $(SRC)/include
 # environment
 ONEDRIVECONSUMER = C:\Users\Devology\OneDrive
 # default
@@ -150,11 +145,9 @@ MAKEFILES :=
 # environment
 PROMPT = $P$G
 # environment
-WT_SESSION = 7474aef6-5973-41ef-a8ce-1c661a0e4e2b
+WT_SESSION = d52fe4b5-bd59-48e6-ad4e-3a8de54f0b16
 # environment
 LOGONSERVER = \\NMOLAPTOP
-# makefile (from 'makefile', line 11)
-BINS = $(patsubst $(SRC)/%.c,$(BIN)/%,$(SOURCES))
 # environment
 USERNAME = Devology
 # environment
@@ -169,18 +162,16 @@ PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.wlua;.lexe;.CPL
 +F = $(notdir $+)
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
-# makefile (from 'makefile', line 10)
-OBJECTS = $(patsubst $(SRC)/%.c,$(OBJ)/%.o,$(SOURCES))
 # environment
 USERDOMAIN = NMOLaptop
-# 'override' directive
+# environment
 GNUMAKEFLAGS := 
 # environment
 CONDA_DEFAULT_ENV = base
 # environment
 OS = Windows_NT
 # makefile
-.DEFAULT_GOAL := obj/daemonize.o
+.DEFAULT_GOAL := daemonize
 # environment
 NVM_HOME = C:\ProgramData\nvm
 # default
@@ -197,12 +188,8 @@ USERDOMAIN_ROAMINGPROFILE = NMOLaptop
 NUMBER_OF_PROCESSORS = 12
 # environment
 PUBLIC = C:\Users\Public
-# makefile (from 'makefile', line 2)
-BIN = bin
 # environment
 APPDATA = C:\Users\Devology\AppData\Roaming
-# makefile (from 'makefile', line 7)
-CFLAGS = -Wall -std=gnu99 -lpthread
 # environment
 _CONDA_EXE = C:\ProgramData\Anaconda3\Scripts\conda.exe
 # environment
@@ -239,15 +226,13 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 REGIONCODE = EMEA
 # environment
 PROCESSOR_REVISION = 6801
-# makefile (from 'makefile', line 9)
-SOURCES = $(wildcard $(SRC)/*.c)
 # environment
 CONDA_EXE = C:\ProgramData\Anaconda3\Scripts\conda.exe
-# env 
-ironment
-PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
+# environment
+PROCESSOR_IDENTIFIER = AMD64 
+ Family 23 Model 104 Stepping 1, AuthenticAMD
 # variable set hash-table stats:
-# Load=117/1024=11%, Rehash=0, Collisions=19/170=11%
+# Load=109/1024=11%, Rehash=0, Collisions=7/119=6%
 
 # Pattern-specific Variable Values
 
@@ -255,10 +240,9 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
 
 # Directories
 
-# src (key c:/Users/Devology/MyProjects/daemonize/daemonize/src, mtime 1661186847): 4 files, no impossibilities.
-# . (key c:/Users/Devology/MyProjects/daemonize/daemonize, mtime 1661190556): 10 files, no impossibilities.
+# . (key c:/Users/Devology/MyProjects/daemonize, mtime 1661289309): 10 files, no impossibilities.
 
-# 14 files, no impossibilities in 2 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -266,25 +250,10 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
 
 # Files
 
-bin/daemonize: obj/daemonize.o
+daemonize: daemonize.c
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'daemonize'
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
-#  recipe to execute (from 'makefile', line 18):
-	@mkdir -p $(BIN)
-	gcc $(CFLAGS) $< -o $@
-
-clean:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
+#  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 27):
-	@rm -rf $(OBJ) $(BIN)
 
 # Not a target:
 .DEFAULT:
@@ -292,77 +261,39 @@ clean:
 #  Modification time never checked.
 #  File has not been updated.
 
-all: bin/daemonize
-#  Phony target (prerequisite of .PHONY).
+# Not a target:
+all:
 #  Command line target.
 #  Implicit rule search has not been done.
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
-
-obj/daemonize.o: src/daemonize.c
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: 'daemonize'
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/daemonize.o
-# automatic
-# * := daemonize
-# automatic
-# < := src/daemonize.c
-# automatic
-# + := src/daemonize.c
-# automatic
-# % := 
-# automatic
-# ^ := src/daemonize.c
-# automatic
-# ? := src/daemonize.c
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/17=6%
-#  recipe to execute (from 'makefile', line 14):
-	@mkdir -p $(OBJ)
-	gcc $(CFLAGS) -I$(INCLUDE) -c $< -o $@
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-src/daemonize.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-22 18:48:53
-#  File has been updated.
-#  Successfully updated.
+daemonize.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 makefile:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-22 18:49:38
-#  File has been updated.
-#  Successfully updated.
-
-.PHONY: all clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=9/1024=1%, Rehash=0, Collisions=0/27=0%
+# Load=6/1024=1%, Rehash=0, Collisions=0/8=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 24 / storage = 186 B / avg = 7 B
-# current buf: size = 8174 B / used = 186 B / count = 24 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 15 / storage = 102 B / avg = 6 B
+# current buf: size = 8174 B / used = 102 B / count = 15 / avg = 6 B
 
-# strcache performance: lookups = 45 / hit rate = 46%
+# strcache performance: lookups = 20 / hit rate = 25%
 # hash-table stats:
-# Load=24/8192=0%, Rehash=0, Collisions=0/45=0%
-# Finished Make data base on Mon Aug 22 18:50:51 2022
+# Load=15/8192=0%, Rehash=0, Collisions=0/20=0%
+# Finished Make data base on Tue Aug 23 22:28:53 2022
 
  

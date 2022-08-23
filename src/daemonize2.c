@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -18,7 +17,6 @@ struct RequestHandler *request_handler_current = NULL;
 
 struct Connection *connection_head = NULL;
 struct Connection *connection_current = NULL;
-
 void sig_handler(int signo)
 {
     struct Connection *c, *tmp;
@@ -55,12 +53,10 @@ void sig_handler(int signo)
         exit(0);
     }
 }
-
-struct Connection *add_client(struct sockaddr_in addr, socklen_t addr_len)
-{
+  struct Connection *add_client(struct sockaddr_in addr, socklen_t addr_len)
+  {
     struct Connection *client = malloc(sizeof(struct Connection));
-    if (!client)
-    {
+    if (!client) {
         perror("Failed to allocate memory");
         return NULL;
     }
@@ -70,7 +66,7 @@ struct Connection *add_client(struct sockaddr_in addr, socklen_t addr_len)
     client->next = connection_head;
     connection_head = client;
     return client;
-}
+  }
 
 int do_accept(int listen_sock)
 {
@@ -94,7 +90,6 @@ int do_accept(int listen_sock)
 
     return 0;
 }
-
 int handle_request(struct ClientConnection *client)
 {
     char buffer[BUFFER_SIZE];
@@ -124,7 +119,6 @@ int handle_request(struct ClientConnection *client)
     }
     return 0;
 }
-
 static void remove_client(struct Connection *connection)
 {
     /* Remove client connection from the list */

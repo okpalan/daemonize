@@ -1,6 +1,6 @@
 make.exe --dry-run --keep-going --print-directory
-make: Entering directory 'c:/Users/Devology/MyProjects/daemonize/daemonize'
-mkdir -p obj
-gcc -Wall -std=gnu99 -lpthread -Isrc/include -c src/daemonize.c -o obj/daemonize.o
-make: Leaving directory 'c:/Users/Devology/MyProjects/daemonize/daemonize'
+make: Entering directory 'c:/Users/Devology/MyProjects/daemonize'
+make: Leaving directory 'c:/Users/Devology/MyProjects/daemonize'
  
+makefile:3: *** missing separator.  Stop.
+
