@@ -1,5 +1,5 @@
 # Daemonize:
-## Run a Process in the Background.
+
 Usage: daemon [options]
 Options:
         -d <dir>          Change working directory
@@ -17,7 +17,7 @@ Options:
 #include <signal.h>
 #include <unistd.h>
 #include <syslog.h>
-#include "daemon.h"
+#include "daemonize.h"
 
 static void sigterm_handler(int signum){
     syslog(LOG_INFO, "SIGTERM received, exiting");
