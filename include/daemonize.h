@@ -14,8 +14,11 @@
 struct ClientConnection
 {
     int sockfd;
+    int pos;
     struct sockaddr_in addr;
     socklen_t addr_len;
+    struct ClientConnection *next;
+    struct ClientConnection *prev;
 };
 
 struct RequestHandler
@@ -32,9 +35,9 @@ struct Connection
     struct Connection *next;
     struct Connection *prev;
 };
+
 extern struct Connection *connection_head;
 extern struct Connection *connection_current;
 
-int daemonize(const char *dir,const char *pidfile, int logfd);
-
+int daemonize(const char *dir, const char *pidfile, int logfd);
 #endif

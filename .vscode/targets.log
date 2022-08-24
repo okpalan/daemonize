@@ -1,6 +1,4 @@
 make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
-makefile:3: *** missing separator.  Stop.
-
 # GNU Make 4.3
 # Built for Windows32
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ makefile:3: *** missing separator.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Aug 24 10:53:48 2022
+# Make data base, printed on Wed Aug 24 12:17:55 2022
 
 # Variables
 
@@ -41,7 +39,8 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # environment
 LUA_DEV = C:\Program Files (x86)\Lua\5.1
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22036_PNOIMXZPSCTZUCBC
+C 
+HROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22036_PNOIMXZPSCTZUCBC
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -170,14 +169,14 @@ PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.wlua;.lexe;.CPL
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
 USERDOMAIN = NMOLaptop
-# environment
+# 'override' directive
 GNUMAKEFLAGS := 
 # environment
 CONDA_DEFAULT_ENV = base
 # environment
 OS = Windows_NT
 # makefile
-.DEFAULT_GOAL := daemonize
+.DEFAULT_GOAL := all
 # environment
 NVM_HOME = C:\ProgramData\nvm
 # default
@@ -239,7 +238,7 @@ CONDA_EXE = C:\ProgramData\Anaconda3\Scripts\conda.exe
 # environment
 PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
 # variable set hash-table stats:
-# Load=113/1024=11%, Rehash=0, Collisions=8/123=7%
+# Load=113/1024=11%, Rehash=0, Collisions=11/143=8%
 
 # Pattern-specific Variable Values
 
@@ -247,7 +246,7 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
 
 # Directories
 
-# . (key c:/Users/Devology/MyProjects/daemonize, mtime 1661334821): 12 files, no impossibilities.
+# . (key c:/Users/Devology/MyProjects/daemonize, mtime 1661337742): 12 files, no impossibilities.
 
 # 12 files, no impossibilities in 1 directories.
 
@@ -257,50 +256,74 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
 
 # Files
 
-daemonize: daemonize.c
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 # Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-all:
+all: src/daemonize.c
 #  Command line target.
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# * := 
+# automatic
+# < := src/daemonize.c
+# automatic
+# + := src/daemonize.c
+# automatic
+# % := 
+# automatic
+# ^ := src/daemonize.c
+# automatic
+# ? := src/daemonize.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'makefile', line 3):
+	gcc -o daemonize src/daemonize.c  -Iinclude
 
 # Not a target:
-daemonize.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/daemonize.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 12:15:36
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 12:17:40
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/8=0%
+# Load=5/1024=0%, Rehash=0, Collisions=0/18=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 17 / storage = 120 B / avg = 7 B
-# current buf: size = 8174 B / used = 120 B / count = 17 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 16 / storage = 111 B / avg = 6 B
+# current buf: size = 8174 B / used = 111 B / count = 16 / avg = 6 B
 
-# strcache performance: lookups = 22 / hit rate = 22%
+# strcache performance: lookups = 23 / hit rate = 30%
 # hash-table stats:
-# Load=17/8192=0%, Rehash=0, Collisions=0/22=0%
-# Finished Make data base on Wed Aug 24 10:53:48 2022
+# Load=16/8192=0%, Rehash=0, Collisions=0/23=0%
+# Finished Make data base on Wed Aug 24 12:17:55 2022
 
  

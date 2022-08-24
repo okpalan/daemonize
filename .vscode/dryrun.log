@@ -1,6 +1,5 @@
 make.exe --dry-run --keep-going --print-directory
-makefile:3: *** missing separator.  Stop.
-
 make: Entering directory 'c:/Users/Devology/MyProjects/daemonize'
+gcc -o daemonize src/daemonize.c  -Iinclude
 make: Leaving directory 'c:/Users/Devology/MyProjects/daemonize'
  

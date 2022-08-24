@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -8,6 +9,7 @@
 #include <errno.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <ctype.h>
 #include "daemonize.h"
 
 #define BUFFER_SIZE 100
@@ -17,6 +19,75 @@ struct RequestHandler *request_handler_current = NULL;
 
 struct Connection *connection_head = NULL;
 struct Connection *connection_current = NULL;
+
+int daemonize(const char *dir, const char *pidfile, int logfd)
+{
+    pid_t pid;
+    int fd;
+
+    /* Fork parent process */
+    pid = fork();
+    if (pid < 0)
+        return -1;
+    if (pid > 0)
+        exit(0);
+
+    /* Create new session */
+    setsid();
+
+    /* Ignore signals */
+    signal(SIGCHLD, SIG_IGN);
+    signal(SIGHUP, SIG_IGN);
+
+    /* Fork off again to get daemon */
+    pid = fork();
+    if (pid < 0)
+        return -1;
+    if (pid > 0)
+        exit(0);
+
+    /* Change working directory */
+    if (dir != NULL)
+    {
+        if (chdir(dir) != 0)
+            return -1;
+    }
+
+    /* Redirect standard file descriptors */
+    if (logfd == -1)
+    {
+        fd = open("/dev/null", O_RDWR);
+    }
+    else
+    {
+        fd = dup2(logfd, STDOUT_FILENO);
+        if (fd == -1)
+            return -1;
+        fd = dup2(logfd, STDERR_FILENO);
+        if (fd == -1)
+            return -1;
+        close(logfd);
+    }
+
+    if (fd == -1)
+        return -1;
+    fd = dup2(fd, STDIN_FILENO);
+    if (fd == -1)
+        return -1;
+
+    /* Write process ID to file */
+    if (pidfile != NULL)
+    {
+        fd = open(pidfile, O_WRONLY | O_CREAT, 0644);
+        if (fd < 0)
+            return -1;
+        if (write(fd, &pid, sizeof(pid)) != sizeof(pid))
+            return -1;
+        close(fd);
+    }
+
+    return 0;
+}
 
 void sig_handler(int signo)
 {
@@ -54,20 +125,30 @@ void sig_handler(int signo)
         exit(0);
     }
 }
-  struct Connection *add_client(struct sockaddr_in addr, socklen_t addr_len)
-  {
+
+struct Connection *add_client(struct sockaddr_in addr, socklen_t addr_len)
+{
     struct Connection *client = malloc(sizeof(struct Connection));
-    if (!client) {
+    struct RequestHandler *request_handler = malloc(sizeof(struct RequestHandler));
+    if (!request_handler)
+    {
         perror("Failed to allocate memory");
         return NULL;
     }
+
+    if (!client)
+    {
+        perror("Failed to allocate memory");
+        return NULL;
+    }
+    memset(request_handler, 0, sizeof(struct RequestHandler));
     memset(client, 0, sizeof(struct Connection));
     client->request_handler = request_handler;
     client->addr = addr;
     client->next = connection_head;
     connection_head = client;
     return client;
-  }
+}
 
 int do_accept(int listen_sock)
 {
@@ -91,6 +172,7 @@ int do_accept(int listen_sock)
 
     return 0;
 }
+
 int handle_request(struct ClientConnection *client)
 {
     char buffer[BUFFER_SIZE];
@@ -120,6 +202,7 @@ int handle_request(struct ClientConnection *client)
     }
     return 0;
 }
+
 static void remove_client(struct Connection *connection)
 {
     /* Remove client connection from the list */
@@ -144,7 +227,7 @@ static void remove_client(struct Connection *connection)
 
 int main(int argc, char *argv[])
 {
-    char *dir, *pidfile;
+    const char *dir, *pidfile;
     int logfd;
 
     if (argc != 4)
