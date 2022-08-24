@@ -1,6 +1,5 @@
 # Daemonize:
-
-Usage: daemon [options]
+Usage: daemonize [options]
 Options:
         -d <dir>          Change working directory
         -p <file>         Write process ID to file
