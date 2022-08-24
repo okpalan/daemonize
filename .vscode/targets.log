@@ -6,7 +6,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Aug 24 12:17:55 2022
+# Make data base, printed on Wed Aug 24 18:44:38 2022
 
 # Variables
 
@@ -19,9 +19,7 @@ USERPROFILE = C:\Users\Devology
 # environment
 LOCALAPPDATA = C:\Users\Devology\AppData\Local
 # environment
-WSLENV = WT_SESSION::WT_PROFILE_ID
-# environment
-VSCODE_CWD = C:\Users\Devology\MyProjects\daemonize
+VSCODE_CWD = C:\windows\system32
 # environment
 CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
 # environment
@@ -31,7 +29,7 @@ SYSTEMROOT = C:\windows
 # environment
 PROCESSOR_LEVEL = 23
 # environment
-PSMODULEPATH = C:\Users\Devology\Documents\PowerShell\Modules;C:\Program Files\PowerShell\Modules;c:\program files\powershell\7\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\windows\system32\WindowsPowerShell\v1.0\Modules
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\windows\system32\WindowsPowerShell\v1.0\Modules
 # default
 MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
@@ -39,22 +37,20 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # environment
 LUA_DEV = C:\Program Files (x86)\Lua\5.1
 # environment
-C 
-HROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22036_PNOIMXZPSCTZUCBC
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_28316_MCYHLGFRGODAOZMP
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # automatic
-%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+%D = $(patsubst %/,%,$(patsubst  
+%\,%,$(dir $%)))
 # automatic
 ^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
 # automatic
 %F = $(notdir $%)
 # environment
-CONDA_PROMPT_MODIFIER = (base) 
-# environment
-VSCODE_CODE_CACHE_PATH = C:\Users\Devology\AppData\Roaming\Code - Insiders\CachedData\bd6107301dc9a6200bd8d4f64a9b198438b3f1d6
+VSCODE_CODE_CACHE_PATH = C:\Users\Devology\AppData\Roaming\Code - Insiders\CachedData\7ed02a69658fc07f08740b98fa0d8d96c1a61ed4
 # environment
 LANG = C
 # default
@@ -89,20 +85,14 @@ COMMONPROGRAMW6432 = C:\Program Files\Common Files
 +D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
 # makefile (from 'makefile', line 1)
 MAKEFILE_LIST := makefile
-# environment
-CONDA_SHLVL = 1
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 22036
+VSCODE_PID = 28316
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # environment
 ONLINESERVICES = Online Services
-# environment
-CONDA_PYTHON_EXE = C:\ProgramData\Anaconda3\python.exe
-# environment
-WT_PROFILE_ID = {574e775e-4f2a-5b96-ac1e-a2962a402336}
 # automatic
 *F = $(notdir $*)
 # environment
@@ -117,8 +107,6 @@ ONEDRIVECONSUMER = C:\Users\Devology\OneDrive
 MAKE_HOST := Windows32
 # environment
 PROGRAMDATA = C:\ProgramData
-# environment
-CONDA_PREFIX = C:\ProgramData\Anaconda3
 # default
 SHELL := sh.exe
 # environment
@@ -136,7 +124,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = C:\ProgramData\Anaconda3;C:\ProgramData\Anaconda3\Library\mingw-w64\bin;C:\ProgramData\Anaconda3\Library\usr\bin;C:\ProgramData\Anaconda3\Library\bin;C:\ProgramData\Anaconda3\Scripts;C:\ProgramData\Anaconda3\bin;C:\ProgramData\Anaconda3\condabin;C:\Program Files\PowerShell\7;C:\Users\okpal\AppData\Local\ActiveState\StateTool\release\bin;C:\Program Files (x86)\VMware\VMwareWorkstation\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\ProgramData\chocolatey\bin;C:\ProgramData\nvm;C:\Program Files\nodejs;C:\Program Files\Go\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Lua\5.1;C:\Program Files (x86)\Lua\5.1\clibs;C:\Program Files\TortoiseHg;C:\Program Files\dotnet;C:\Program Files\CMake\bin;C:\Program Files\PowerShell\7;C:\Users\Devology\scoop\apps\openssl\current\bin;C:\Users\Devology\scoop\apps\mingw\current\bin;C:\Users\Devology\scoop\shims;C:\Users\Devology\AppData\Local\Microsoft\WindowsApps;C:\Users\Devology\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Users\Devology\AppData\Local\Keybase
+PATH = C:\Users\okpal\AppData\Local\ActiveState\StateTool\release\bin;C:\Program Files (x86)\VMware\VMwareWorkstation\bin\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\ProgramData\nvm;C:\Program Files\nodejs;C:\Program Files\Go\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Lua\5.1;C:\Program Files (x86)\Lua\5.1\clibs;C:\Program Files\TortoiseHg\;C:\Program Files\dotnet\;C:\Program Files\CMake\bin;C:\Program Files\PowerShell\7\;C:\Users\Devology\scoop\apps\openssl\current\bin;C:\Users\Devology\scoop\apps\mingw\current\bin;C:\Users\Devology\scoop\shims;C:\Users\Devology\AppData\Local\Microsoft\WindowsApps;C:\Users\Devology\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Users\Devology\AppData\Local\Keybase\
 # environment
 COMPUTERNAME = NMOLAPTOP
 # default
@@ -147,8 +135,6 @@ MAKEFILES :=
 PROMPT = $P$G
 # environment
 OPENSSL_CONF = C:\Users\Devology\scoop\apps\openssl\current\bin\cnf\openssl.cnf
-# environment
-WT_SESSION = cc544351-25d8-4906-83bb-d93779ca7ad4
 # environment
 OPENSSL_LIB_DIR = C:\Users\Devology\scoop\apps\openssl\current\lib
 # environment
@@ -162,7 +148,7 @@ COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
 # environment
 PROGRAMW6432 = C:\Program Files
 # environment
-PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.wlua;.lexe;.CPL
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.wlua;.lexe
 # automatic
 +F = $(notdir $+)
 # environment
@@ -171,8 +157,6 @@ ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 USERDOMAIN = NMOLaptop
 # 'override' directive
 GNUMAKEFLAGS := 
-# environment
-CONDA_DEFAULT_ENV = base
 # environment
 OS = Windows_NT
 # makefile
@@ -186,8 +170,6 @@ PLATFORMCODE = KV
 # environment
 PROGRAMFILES(X86) = C:\Program Files (x86)
 # environment
-_CONDA_ROOT = C:\ProgramData\Anaconda3
-# environment
 OPENSSL_INCLUDE_DIR = C:\Users\Devology\scoop\apps\openssl\current\include
 # environment
 USERDOMAIN_ROAMINGPROFILE = NMOLaptop
@@ -197,8 +179,6 @@ NUMBER_OF_PROCESSORS = 12
 PUBLIC = C:\Users\Public
 # environment
 APPDATA = C:\Users\Devology\AppData\Roaming
-# environment
-_CONDA_EXE = C:\ProgramData\Anaconda3\Scripts\conda.exe
 # environment
 HOMEDRIVE = C:
 # environment
@@ -224,9 +204,7 @@ SUFFIXES :=
 # environment
 ALLUSERSPROFILE = C:\ProgramData
 # environment
-VSCODE_CLI = 1
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
+SESSIONNAME = Console
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
 # environment
@@ -234,11 +212,9 @@ REGIONCODE = EMEA
 # environment
 PROCESSOR_REVISION = 6801
 # environment
-CONDA_EXE = C:\ProgramData\Anaconda3\Scripts\conda.exe
-# environment
 PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
 # variable set hash-table stats:
-# Load=113/1024=11%, Rehash=0, Collisions=11/143=8%
+# Load=101/1024=10%, Rehash=0, Collisions=10/131=8%
 
 # Pattern-specific Variable Values
 
@@ -246,7 +222,7 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD
 
 # Directories
 
-# . (key c:/Users/Devology/MyProjects/daemonize, mtime 1661337742): 12 files, no impossibilities.
+# . (key c:/Users/Devology/MyProjects/daemonize, mtime 1661340013): 12 files, no impossibilities.
 
 # 12 files, no impossibilities in 1 directories.
 
@@ -293,7 +269,7 @@ all: src/daemonize.c
 # Not a target:
 src/daemonize.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-24 12:15:36
+#  Last modified 2022-08-24 12:33:42
 #  File has been updated.
 #  Successfully updated.
 
@@ -324,6 +300,6 @@ makefile:
 # strcache performance: lookups = 23 / hit rate = 30%
 # hash-table stats:
 # Load=16/8192=0%, Rehash=0, Collisions=0/23=0%
-# Finished Make data base on Wed Aug 24 12:17:55 2022
+# Finished Make data base on Wed Aug 24 18:44:38 2022
 
  

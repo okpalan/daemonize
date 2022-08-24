@@ -1,16 +1,11 @@
-
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
 #include <fcntl.h>
-#include <syslog.h>
 #include <signal.h>
-#include <errno.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
+#include <sys/stat.h>
 #include <ctype.h>
-#include "daemonize.h"
 
 #define BUFFERSIZE 201
 #define NUMCONN 10
@@ -18,7 +13,7 @@
 
 #define DEFAULT_PORT "8080"
 #define DEFAULT_MAX_CLIENTS 10
-#define PIDFILE "/var/etc/casper.pid"
+#define PIDFILE "/var/etc/daemonize.pid"
 
 struct RequestHandler *request_handler_head = NULL;
 struct RequestHandler *request_handler_current = NULL;
@@ -26,10 +21,8 @@ struct RequestHandler *request_handler_current = NULL;
 struct Connection *connection_head = NULL;
 struct Connection *connection_current = NULL;
 
-struct ClientConnection *head = NULL;
-int listenfd;
-
-int daemonize(const char *dir, const char *pidfile, int logfd){
+int daemonize(const char *dir, const char *pidfile, int logfd)
+{
     pid_t pid;
     int fd;
 
@@ -241,16 +234,6 @@ static void showHelp()
     printf("\t-h\t\tShow this help\n");
     printf("\t-V\t\tShow version\n");
 }
-int getVersion()
-{
-    printf("Version 0.1.0");
-    return 0;
-}
-
-void logError(notice)
-{
-    printf("%s", notice);
-}
 int main(int argc, char *argv[])
 {
     char *configFile = NULL;
@@ -287,7 +270,7 @@ int main(int argc, char *argv[])
             configName = optarg;
             break;
         case 'V':
-            printf("casper %s\n", getVersion());
+            printf("daemonize %s\n", getVersion());
             exit(0);
         case 'h':
             showHelp();
@@ -327,7 +310,7 @@ int main(int argc, char *argv[])
     }
 
     /* Daemonize */
-    if (daemonize("/var/run/casper", PIDFILE, logFd) != 0)
+    if (daemonize("/var/run/daemonize", PIDFILE, logFd) != 0)
         exit(1);
 
     logNotice("Initializing...");
@@ -374,7 +357,7 @@ int main(int argc, char *argv[])
         client = client_last;
         while (client != NULL)
         {
-            FD_SET(client->sockfd, &clients);
+            FD_SET(client->socket, &clients);
             client = client->prev;
         }
 
@@ -415,7 +398,7 @@ int main(int argc, char *argv[])
                 logError("Failed to allocate client connection");
                 exit(1);
             }
-            client->sockfd = client_socket;
+            client->socket = client_socket;
             client->addr = client_addr;
             client->pos = 0;
 
@@ -427,14 +410,118 @@ int main(int argc, char *argv[])
             client_count++;
         }
 
-        /* Handle clients */
+        /* Check clients */
         client = client_last;
         while (client != NULL)
         {
-            /* Check for client disconnect */
-            if (!FD_ISSET(client->sockfd, &clients))
+            /* Check for client activity */
+            if (FD_ISSET(client->socket, &clients))
             {
-                close(client->sockfd);
+                client_socket = client->socket;
+                client_pos = client->pos;
+                error = sockaddr_len;
+                result = recvfrom(client_socket, client->buffer + client_pos, sizeof(client->buffer) - client_pos, 0, (struct sockaddr *)&client_addr, &sockaddr_len);
+                if (result < 0)
+                {
+                    /* Ignore errors */
+                    if (errno == EINTR || errno == EAGAIN || errno == EWOULDBLOCK)
+                        continue;
+                    logError("Failed to receive from client");
+                    exit(1);
+                }
+                if (result == 0)
+                {
+                    /* Client has disconnected */
+                    close(client_socket);
+                    logNotice("Client disconnected");
+
+                    /* Remove client connection from list */
+                    if (client->prev != NULL)
+                        client->prev->next = client->next;
+                    if (client->next != NULL)
+                        client->next->prev = client->prev;
+                    if (client == client_last)
+                        client_last = client->prev;
+                    client_count--;
+
+                    /* Free client connection */
+                    free(client);
+                    client = client->prev;
+                    continue;
+                }
+                client_pos += result;
+
+                /* Check for message */
+                if (client_pos >= 4)
+                {
+                    /* Get message length */
+                    msg_len = ((client->buffer[0] & 0xff) << 24) | ((client->buffer[1] & 0xff) << 16) | ((client->buffer[2] & 0xff) << 8) | (client->buffer[3] & 0xff);
+                    if (msg_len > sizeof(client->buffer) - 4)
+                    {
+                        logError("Message too long");
+                        exit(1);
+                    }
+
+                    /* Wait for message to arrive */
+                    if (client_pos < msg_len + 4)
+                    {
+                        client->pos = client_pos;
+                        continue;
+                    }
+
+                    /* Get message */
+                    msg = client->buffer + 4;
+                    msg_len = client_pos - 4;
+
+                    /* Log message */
+                    logDebug("Sending message to client...");
+
+                    /* Send message to clients */
+                    sent = 0;
+                    client_client = client_last;
+                    while (client_client != NULL)
+                    {
+                        if (client_client == client)
+                        {
+                            client_client = client_client->prev;
+                            continue;
+                        }
+                        result = sendto(client_client->socket, msg + sent, msg_len - sent, 0, (struct sockaddr *)&client_client->addr, sizeof(client_client->addr));
+                        if (result < 0)
+                        {
+                            /* Ignore errors */
+                            if (errno == EINTR || errno == EAGAIN || errno == EWOULDBLOCK)
+                                continue;
+                            logError("Failed to send to client");
+                            exit(1);
+                        }
+                        sent += result;
+                        if (sent >= msg_len)
+                            break;
+                        client_client = client_client->prev;
+                    }
+
+                    /* Remove message from client buffer */
+                    memmove(client->buffer, client->buffer + msg_len + 4, sizeof(client->buffer) - (msg_len + 4));
+                    client_pos -= msg_len + 4;
+                }
+                client->pos = client_pos;
+            }
+
+            /* Check for client disconnect */
+            error = 0;
+            result = sendto(client_socket, NULL, 0, MSG_NOSIGNAL, (struct sockaddr *)&client_addr, sizeof(client_addr));
+            if (result < 0)
+            {
+                if (errno != EPIPE && errno != ECONNRESET)
+                    logError("Failed to send to client");
+                error = 1;
+            }
+
+            /* Remove client connection from list */
+            if (error)
+            {
+                close(client_socket);
                 logNotice("Client disconnected");
                 if (client->prev != NULL)
                     client->prev->next = client->next;
@@ -448,140 +535,6 @@ int main(int argc, char *argv[])
                 continue;
             }
 
-            /* Copy log file to client */
-            if (logFd != -1)
-            {
-                /* Check for log file change */
-                off_t fileSize = lseek(logFd, 0, SEEK_END);
-                if (fileSize == -1)
-                {
-                    close(logFd);
-                    logFd = -1;
-                }
-                else if (logFileBufferSize < fileSize)
-                {
-                    logFileBuffer = (char *)realloc(logFileBuffer, fileSize);
-                    if (logFileBuffer == NULL)
-                    {
-                        close(logFd);
-                        logFd = -1;
-                    }
-                    else
-                    {
-                        logFileBufferSize = fileSize;
-                        logFileBufferPos = 0;
-                    }
-                }
-
-                /* Read log file */
-                if (logFd != -1)
-                {
-                    result = read(logFd, logFileBuffer + logFileBufferPos, logFileBufferSize - logFileBufferPos);
-                    if (result > 0)
-                    {
-                        logFileBufferPos += result;
-                        if (logFileBufferPos >= logFileBufferSize)
-                            logFileBufferPos = 0;
-                    }
-                    else if (result < 0 && errno != EINTR && errno != EAGAIN && errno != EWOULDBLOCK)
-                    {
-                        close(logFd);
-                        logFd = -1;
-                    }
-                }
-            }
-
-            /* Send log file to client */
-            if (logFd != -1)
-            {
-                sent = 0;
-                while (sent < logFileBufferPos)
-                {
-                    result = send(client->sockfd, logFileBuffer + sent, logFileBufferPos - sent, MSG_NOSIGNAL);
-                    if (result < 0)
-                    {
-                        /* Ignore errors */
-                        if (errno == EINTR || errno == EAGAIN || errno == EWOULDBLOCK)
-                            continue;
-                        goto client_error;
-                    }
-                }
-                sent += result;
-            }
-            sent = 0;
-            while (sent < logFileBufferSize - logFileBufferPos)
-            {
-                result = send(client->sockfd, logFileBuffer + logFileBufferSize - sent, logFileBufferSize - logFileBufferPos - sent, MSG_NOSIGNAL);
-                if (result < 0)
-                {
-                    /* Ignore errors */
-                    if (errno == EINTR || errno == EAGAIN || errno == EWOULDBLOCK)
-                        continue;
-                    goto client_error;
-                }
-                sent += result;
-            }
-        }
-
-        /* Send log file to client */
-        if (logFd != -1)
-        {
-            sent = 0;
-            while (sent < logFileBufferPos)
-            {
-                result = send(client->sockfd, logFileBuffer + sent, logFileBufferPos - sent, MSG_NOSIGNAL);
-                if (result < 0)
-                {
-                    /* Ignore errors */
-                    if (errno == EINTR || errno == EAGAIN || errno == EWOULDBLOCK)
-                        continue;
-                    goto client_error;
-                }
-                sent += result;
-            }
-            sent = 0;
-            while (sent < logFileBufferSize - logFileBufferPos)
-            {
-                result = send(client->sockfd, logFileBuffer + logFileBufferSize - sent, logFileBufferSize - logFileBufferPos - sent, MSG_NOSIGNAL);
-                if (result < 0)
-                {
-                    /* Ignore errors */
-                    if (errno == EINTR || errno == EAGAIN || errno == EWOULDBLOCK)
-                        continue;
-                    goto client_error;
-                }
-                sent += result;
-            }
-        }
-
-        /* Check for client disconnect */
-        error = 0;
-        result = sendto(client_socket, NULL, 0, MSG_NOSIGNAL, (struct sockaddr *)&client_addr, sizeof(client_addr));
-        if (result < 0)
-        {
-            if (errno != EPIPE && errno != ECONNRESET)
-                logError("Failed to send to client");
-            error = 1;
-        }
-
-        /* Remove client connection from list */
-        if (error)
-        {
-        client_error:
-            close(client->sockfd);
-            logNotice("Client disconnected");
-            if (client->prev != NULL)
-                client->prev->next = client->next;
-            if (client->next != NULL)
-                client->next->prev = client->prev;
-            if (client == client_last)
-                client_last = client->prev;
-            client_count--;
-            free(client);
             client = client->prev;
-            continue;
         }
-
-        client = client->prev;
     }
-}
