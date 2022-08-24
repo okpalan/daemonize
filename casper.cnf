@@ -1,0 +1,3 @@
+daemonize=true
+log-file=/var/log/casper.log
+pid-file=/var/run/casper.pid

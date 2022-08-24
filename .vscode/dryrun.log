@@ -1,6 +1,6 @@
 make.exe --dry-run --keep-going --print-directory
+makefile:3: *** missing separator.  Stop.
+
 make: Entering directory 'c:/Users/Devology/MyProjects/daemonize'
 make: Leaving directory 'c:/Users/Devology/MyProjects/daemonize'
  
-makefile:3: *** missing separator.  Stop.
-

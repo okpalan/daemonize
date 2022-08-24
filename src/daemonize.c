@@ -9,7 +9,6 @@
 #include <errno.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-
 #include "daemonize.h"
 
 #define BUFFER_SIZE 100
@@ -126,16 +125,6 @@ void sig_handler(int signo)
     }
 }
 
-static void showHelp()
-{
-    printf("Usage: daemonize [options]\n");
-    printf("Options:\n");
-    printf("\t-c <file>\tConfiguration file\n");
-    printf("\t-n <name>\tConfiguration name\n");
-    printf("\t-h\t\tShow this help\n");
-    printf("\t-V\t\tShow version\n");
-}
-
 struct Connection *add_client(struct sockaddr_in addr, socklen_t addr_len)
 {
     struct Connection *client = malloc(sizeof(struct Connection));
@@ -151,7 +140,6 @@ struct Connection *add_client(struct sockaddr_in addr, socklen_t addr_len)
         perror("Failed to allocate memory");
         return NULL;
     }
-
     memset(request_handler, 0, sizeof(struct RequestHandler));
     memset(client, 0, sizeof(struct Connection));
     client->request_handler = request_handler;
@@ -238,7 +226,7 @@ static void remove_client(struct Connection *connection)
 
 int main(int argc, char *argv[])
 {
-    char *dir, *pidfile;
+    const char *dir, *pidfile;
     int logfd;
 
     if (argc != 4)

@@ -1,6 +1,14 @@
 #ifndef DAEMONIZE_H
 #define DAEMONIZE_H
 
+// #ifdef __linux__
+// #include <syslog.h>
+// #include <sys/socket.h>
+// #include <netinet/in.h>
+// #elif WINDOWS
+// #include <winsock.h>
+// #endif
+
 #define BUFFER_SIZE 100
 
 struct ClientConnection
@@ -27,6 +35,6 @@ struct Connection
 extern struct Connection *connection_head;
 extern struct Connection *connection_current;
 
-int daemonize(const char *dir, char *pidfile, int logfd);
+int daemonize(const char *dir,const char *pidfile, int logfd);
 
 #endif

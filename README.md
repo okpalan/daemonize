@@ -17,6 +17,7 @@ Options:
 #include <signal.h>
 #include <unistd.h>
 #include <syslog.h>
+
 #include "daemonize.h"
 
 static void sigterm_handler(int signum){

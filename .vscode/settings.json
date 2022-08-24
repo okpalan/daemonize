@@ -1,8 +1,6 @@
 {
     "makefile.extensionOutputFolder": "./.vscode",
     "files.associations": {
-        "signal.h": "c",
-        "fcntl.h": "c",
-        "errno.h": "c"
+        "daemonize.h": "c"
     }
 }
